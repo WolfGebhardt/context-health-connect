@@ -79,7 +79,8 @@ const GoalsAchievements = () => {
         {goals.map((goal) => {
           const progress = getProgress(goal.current, goal.target);
           const Icon = goal.icon;
-          const circumference = 2 * Math.PI * 52;
+          const radius = 56; // Adjusted for better spacing
+          const circumference = 2 * Math.PI * radius;
           const strokeDashoffset = circumference - (progress / 100) * circumference;
           const isComplete = progress >= 100;
           const maxWeeklyValue = Math.max(...goal.weeklyData);
@@ -95,44 +96,48 @@ const GoalsAchievements = () => {
                 {/* Outer glow effect */}
                 <div className={`absolute inset-0 rounded-full ${goal.bgColor} opacity-30 dark:opacity-50 blur-2xl`} />
                 
-                {/* Background circle */}
-                <svg className="w-full h-full transform -rotate-90 drop-shadow-2xl relative z-10" viewBox="0 0 160 160">
+                {/* SVG Progress Ring */}
+                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 160 160">
+                  {/* Background circle */}
                   <circle
                     cx="80"
                     cy="80"
-                    r="52"
+                    r={radius}
                     stroke="currentColor"
-                    strokeWidth="20"
+                    strokeWidth="14"
                     fill="none"
                     className="text-muted/20 dark:text-muted/30"
                   />
+                  {/* Progress circle */}
                   <circle
                     cx="80"
                     cy="80"
-                    r="52"
+                    r={radius}
                     stroke="currentColor"
-                    strokeWidth="20"
+                    strokeWidth="14"
                     fill="none"
                     className={`${goal.color} transition-all duration-1000 ease-out ${isComplete ? 'animate-pulse-slow' : ''}`}
                     strokeDasharray={circumference}
                     strokeDashoffset={strokeDashoffset}
                     strokeLinecap="round"
                     style={{ 
-                      filter: 'drop-shadow(0 0 12px currentColor) brightness(1.2)',
+                      filter: 'drop-shadow(0 0 10px currentColor) brightness(1.2)',
                     }}
                   />
                 </svg>
                 
                 {/* Center content */}
-                <div className="absolute inset-0 z-0 flex flex-col items-center justify-center bg-card/90 dark:bg-card/90 rounded-full m-10 backdrop-blur-md border-2 border-border/50 dark:border-border/70">
-                  <span className="text-3xl font-bold text-foreground mb-1">
-                    {goal.current}
-                  </span>
-                  <span className="text-xs text-muted-foreground font-semibold">min</span>
-                  <div className="mt-1.5 px-2 py-0.5 bg-muted/70 dark:bg-muted/50 rounded-full">
-                    <span className="text-[10px] text-foreground font-medium">
-                      Goal: {goal.target}
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="bg-card/95 dark:bg-card/95 rounded-full backdrop-blur-md border-2 border-border/50 dark:border-border/70 p-6 flex flex-col items-center justify-center">
+                    <span className="text-2xl font-bold text-foreground mb-0.5">
+                      {goal.current}
                     </span>
+                    <span className="text-[10px] text-muted-foreground font-semibold">min</span>
+                    <div className="mt-1 px-2 py-0.5 bg-muted/70 dark:bg-muted/50 rounded-full">
+                      <span className="text-[9px] text-foreground font-medium">
+                        Goal: {goal.target}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -4,7 +4,7 @@
 
 An AI-powered environmental health tracking application that translates your daily environmental context into actionable health insights.
 
-![ContextHealth Overview Dashboard](https://5155ad08-15cd-4599-a268-43759bc0a9cf.lovableproject.com/lovable-uploads/b0739fd3-9bdc-44ce-b067-c1e55be7b7dd.png)
+![ContextHealth Overview Dashboard](./public/screenshots/dashboard-overview.png)
 *Environmental Health Score dashboard showing daily breakdown and AI-powered insights*
 
 ## 🌟 Overview

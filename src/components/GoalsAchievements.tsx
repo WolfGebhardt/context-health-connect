@@ -8,8 +8,7 @@ interface Goal {
   target: number;
   icon: React.ElementType;
   color: string;
-  bgColor: string;
-  weeklyData: number[]; // Daily minutes for each day of the week (Mon-Sun)
+  weeklyData: number[];
 }
 
 const GoalsAchievements = () => {
@@ -20,9 +19,8 @@ const GoalsAchievements = () => {
       current: 85, 
       target: 120, 
       icon: Leaf, 
-      color: 'text-nature',
-      bgColor: 'bg-nature',
-      weeklyData: [20, 10, 8, 12, 15, 10, 10] // Mon-Sun
+      color: 'hsl(var(--nature))',
+      weeklyData: [20, 10, 8, 12, 15, 10, 10]
     },
     { 
       id: 'social', 
@@ -30,8 +28,7 @@ const GoalsAchievements = () => {
       current: 45, 
       target: 60, 
       icon: Users, 
-      color: 'text-social',
-      bgColor: 'bg-social',
+      color: 'hsl(var(--social))',
       weeklyData: [8, 5, 4, 10, 8, 5, 5]
     },
     { 
@@ -40,8 +37,7 @@ const GoalsAchievements = () => {
       current: 120, 
       target: 150, 
       icon: Focus, 
-      color: 'text-focus',
-      bgColor: 'bg-focus',
+      color: 'hsl(var(--focus))',
       weeklyData: [25, 15, 18, 20, 22, 10, 10]
     },
     { 
@@ -50,8 +46,7 @@ const GoalsAchievements = () => {
       current: 420, 
       target: 480, 
       icon: Moon, 
-      color: 'text-muted-foreground',
-      bgColor: 'bg-muted',
+      color: 'hsl(var(--muted-foreground))',
       weeklyData: [60, 58, 55, 62, 65, 60, 60]
     },
     { 
@@ -60,135 +55,141 @@ const GoalsAchievements = () => {
       current: 30, 
       target: 30, 
       icon: Dumbbell, 
-      color: 'text-primary',
-      bgColor: 'bg-primary',
+      color: 'hsl(var(--primary))',
       weeklyData: [5, 3, 2, 8, 5, 4, 3]
     }
   ];
 
-  const getProgress = (current: number, target: number) => {
-    return Math.min((current / target) * 100, 100);
-  };
-
   const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
   return (
-    <Card className="p-8 bg-gradient-to-br from-card to-accent/20 border-2">
-      <h2 className="text-2xl font-bold mb-8 text-foreground">Goals & Achievements</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-        {goals.map((goal) => {
-          const progress = getProgress(goal.current, goal.target);
+    <Card className="p-8 bg-gradient-to-br from-card via-card to-accent/5 border-2 shadow-xl">
+      <div className="mb-10">
+        <h2 className="text-3xl font-bold text-foreground mb-2">Goals & Achievements</h2>
+        <p className="text-sm text-muted-foreground">Track your weekly wellness progress</p>
+      </div>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10">
+        {goals.map((goal, index) => {
           const Icon = goal.icon;
-          const radius = 56; // Adjusted for better spacing
+          const progress = Math.min((goal.current / goal.target) * 100, 100);
+          const radius = 58;
           const circumference = 2 * Math.PI * radius;
           const strokeDashoffset = circumference - (progress / 100) * circumference;
-          const isComplete = progress >= 100;
           const maxWeeklyValue = Math.max(...goal.weeklyData);
           const dailyTarget = goal.target / 7;
 
           return (
             <div 
               key={goal.id} 
-              className="flex flex-col items-center gap-5 animate-fade-in hover:scale-105 transition-transform duration-300"
+              className="flex flex-col items-center gap-6 animate-fade-in"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Circular Progress */}
-              <div className="relative w-40 h-40">
-                {/* Outer glow effect */}
-                <div className={`absolute inset-0 rounded-full ${goal.bgColor} opacity-30 dark:opacity-50 blur-2xl`} />
+              {/* Circular Progress Ring */}
+              <div className="relative" style={{ width: 180, height: 180 }}>
+                {/* Glow effect */}
+                <div 
+                  className="absolute inset-0 rounded-full blur-3xl opacity-20 dark:opacity-30"
+                  style={{ backgroundColor: goal.color }}
+                />
                 
-                {/* SVG Progress Ring */}
-                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 160 160">
-                  {/* Background circle */}
+                {/* SVG Ring */}
+                <svg 
+                  width="180" 
+                  height="180" 
+                  viewBox="0 0 180 180"
+                  className="transform -rotate-90"
+                >
+                  {/* Background ring */}
                   <circle
-                    cx="80"
-                    cy="80"
+                    cx="90"
+                    cy="90"
                     r={radius}
-                    stroke="currentColor"
-                    strokeWidth="14"
                     fill="none"
+                    stroke="currentColor"
+                    strokeWidth="16"
                     className="text-muted/20 dark:text-muted/30"
                   />
-                  {/* Progress circle */}
+                  {/* Progress ring */}
                   <circle
-                    cx="80"
-                    cy="80"
+                    cx="90"
+                    cy="90"
                     r={radius}
-                    stroke="currentColor"
-                    strokeWidth="14"
                     fill="none"
-                    className={`${goal.color} transition-all duration-1000 ease-out ${isComplete ? 'animate-pulse-slow' : ''}`}
+                    stroke={goal.color}
+                    strokeWidth="16"
                     strokeDasharray={circumference}
                     strokeDashoffset={strokeDashoffset}
                     strokeLinecap="round"
-                    style={{ 
-                      filter: 'drop-shadow(0 0 10px currentColor) brightness(1.2)',
+                    className="transition-all duration-1000 ease-out"
+                    style={{
+                      filter: `drop-shadow(0 0 8px ${goal.color})`,
                     }}
                   />
                 </svg>
                 
-                {/* Center content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="bg-card/95 dark:bg-card/95 rounded-full backdrop-blur-md border-2 border-border/50 dark:border-border/70 p-6 flex flex-col items-center justify-center">
-                    <span className="text-2xl font-bold text-foreground mb-0.5">
+                {/* Center content with absolute positioning */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex flex-col items-center justify-center text-center bg-card rounded-full w-28 h-28 border-2 border-border/40 shadow-lg backdrop-blur-sm">
+                    <span className="text-3xl font-bold text-foreground leading-none">
                       {goal.current}
                     </span>
-                    <span className="text-[10px] text-muted-foreground font-semibold">min</span>
-                    <div className="mt-1 px-2 py-0.5 bg-muted/70 dark:bg-muted/50 rounded-full">
-                      <span className="text-[9px] text-foreground font-medium">
-                        Goal: {goal.target}
-                      </span>
-                    </div>
+                    <span className="text-xs text-muted-foreground font-medium mt-1">
+                      of {goal.target} min
+                    </span>
                   </div>
                 </div>
               </div>
               
-              {/* Goal Label */}
-              <div className="text-center space-y-1">
-                <div className="flex items-center gap-2 justify-center">
-                  <Icon className={`w-4 h-4 ${goal.color}`} />
-                  <p className="text-sm font-semibold text-foreground">{goal.label}</p>
+              {/* Label with Icon */}
+              <div className="flex flex-col items-center gap-2 w-full">
+                <div className="flex items-center gap-2">
+                  <Icon className="w-5 h-5" style={{ color: goal.color }} />
+                  <h3 className="text-base font-bold text-foreground">{goal.label}</h3>
                 </div>
-                <p className="text-xs text-muted-foreground font-medium">
-                  {Math.round(progress)}% complete
-                </p>
+                <div className="text-sm font-semibold text-foreground/70">
+                  {Math.round(progress)}% Complete
+                </div>
               </div>
 
-              {/* Weekly Progress Chart */}
-              <div className="w-full px-2">
-                <div className="relative h-20 flex items-end justify-between gap-1 bg-muted/20 dark:bg-muted/10 rounded-lg p-2 border border-border/30">
-                  {/* Grid lines */}
-                  <div className="absolute inset-x-2 top-2 bottom-8 flex flex-col justify-between pointer-events-none">
-                    <div className="h-px bg-border/30" />
-                    <div className="h-px bg-border/30" />
-                  </div>
-                  
-                  {/* Bars */}
-                  {goal.weeklyData.map((value, idx) => {
-                    const barHeight = Math.max((value / maxWeeklyValue) * 100, 8);
-                    const isAboveTarget = value >= dailyTarget;
+              {/* Weekly Bar Chart */}
+              <Card className="w-full p-4 bg-muted/30 dark:bg-muted/20 border border-border/50">
+                <div className="space-y-2">
+                  <div className="h-24 flex items-end justify-between gap-1.5 relative">
+                    {/* Grid lines */}
+                    <div className="absolute inset-0 flex flex-col justify-between py-1 pointer-events-none">
+                      <div className="h-px bg-border/20" />
+                      <div className="h-px bg-border/20" />
+                      <div className="h-px bg-border/20" />
+                    </div>
                     
-                    return (
-                      <div key={idx} className="flex-1 flex flex-col items-center gap-1 relative z-10">
-                        <div 
-                          className={`w-full rounded-sm transition-all duration-500 ${
-                            isAboveTarget ? goal.bgColor : 'bg-muted dark:bg-muted/60'
-                          } ${isAboveTarget ? 'opacity-100' : 'opacity-50'}`}
-                          style={{ 
-                            height: `${barHeight}%`,
-                            filter: isAboveTarget ? 'brightness(1.1)' : 'none'
-                          }}
-                        />
-                        <span className="text-[9px] font-bold text-muted-foreground dark:text-muted-foreground/80">
-                          {days[idx]}
-                        </span>
-                      </div>
-                    );
-                  })}
+                    {/* Bars */}
+                    {goal.weeklyData.map((value, idx) => {
+                      const barHeight = Math.max((value / maxWeeklyValue) * 100, 5);
+                      const meetsTarget = value >= dailyTarget;
+                      
+                      return (
+                        <div key={idx} className="flex-1 flex flex-col items-center gap-2 relative">
+                          <div 
+                            className="w-full rounded-t-md transition-all duration-700 hover:opacity-80"
+                            style={{ 
+                              height: `${barHeight}%`,
+                              backgroundColor: meetsTarget ? goal.color : 'hsl(var(--muted))',
+                              opacity: meetsTarget ? 1 : 0.4,
+                            }}
+                          />
+                          <span className="text-[10px] font-bold text-foreground/60">
+                            {days[idx]}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="text-[10px] text-center text-muted-foreground font-medium pt-1 border-t border-border/30">
+                    Weekly Activity Pattern
+                  </p>
                 </div>
-                <p className="text-[10px] text-center text-muted-foreground mt-1 font-medium">
-                  This week's activity
-                </p>
-              </div>
+              </Card>
             </div>
           );
         })}

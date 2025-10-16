@@ -5,6 +5,7 @@ import InsightsPanel from '@/components/InsightsPanel';
 import StatsBreakdown from '@/components/StatsBreakdown';
 import RecommendationCard from '@/components/RecommendationCard';
 import AIClassificationPanel from '@/components/AIClassificationPanel';
+import GoalsAchievements from '@/components/GoalsAchievements';
 import { Button } from '@/components/ui/button';
 import { Calendar, Activity, TrendingUp } from 'lucide-react';
 import { mockTimelineData, mockDailyStats, mockHealthInsights } from '@/data/mockData';
@@ -74,10 +75,10 @@ const Index = () => {
               <div className="space-y-6">
                 <AIClassificationPanel />
                 <StatsBreakdown stats={mockDailyStats} />
-                <RecommendationCard />
               </div>
-              <div>
+              <div className="space-y-6">
                 <InsightsPanel insights={mockHealthInsights.slice(0, 3)} />
+                <RecommendationCard />
               </div>
             </div>
           </div>
@@ -90,8 +91,9 @@ const Index = () => {
         )}
 
         {activeView === 'insights' && (
-          <div className="animate-fade-in max-w-4xl mx-auto">
-            <InsightsPanel insights={mockHealthInsights} />
+          <div className="animate-fade-in space-y-6">
+            <GoalsAchievements />
+            <InsightsPanel insights={mockHealthInsights.slice(3)} />
           </div>
         )}
       </main>

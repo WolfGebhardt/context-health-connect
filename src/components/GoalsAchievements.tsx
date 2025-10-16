@@ -20,7 +20,7 @@ const GoalsAchievements = () => {
       target: 120, 
       icon: Leaf, 
       color: 'hsl(var(--nature))',
-      weeklyData: [20, 10, 8, 12, 15, 10, 10]
+      weeklyData: [15, 12, 10, 8, 20, 10, 10] // Mon-Sun: Total 85 min
     },
     { 
       id: 'social', 
@@ -29,7 +29,7 @@ const GoalsAchievements = () => {
       target: 60, 
       icon: Users, 
       color: 'hsl(var(--social))',
-      weeklyData: [8, 5, 4, 10, 8, 5, 5]
+      weeklyData: [8, 7, 5, 4, 10, 6, 5] // Mon-Sun: Total 45 min
     },
     { 
       id: 'focus', 
@@ -38,7 +38,7 @@ const GoalsAchievements = () => {
       target: 150, 
       icon: Focus, 
       color: 'hsl(var(--focus))',
-      weeklyData: [25, 15, 18, 20, 22, 10, 10]
+      weeklyData: [20, 18, 15, 12, 25, 15, 15] // Mon-Sun: Total 120 min, higher on weekdays
     },
     { 
       id: 'sleep', 
@@ -47,7 +47,7 @@ const GoalsAchievements = () => {
       target: 480, 
       icon: Moon, 
       color: 'hsl(var(--muted-foreground))',
-      weeklyData: [60, 58, 55, 62, 65, 60, 60]
+      weeklyData: [58, 62, 55, 60, 65, 60, 60] // Mon-Sun: Total 420 min (7 hours avg)
     },
     { 
       id: 'exercise', 
@@ -56,7 +56,7 @@ const GoalsAchievements = () => {
       target: 30, 
       icon: Dumbbell, 
       color: 'hsl(var(--primary))',
-      weeklyData: [5, 3, 2, 8, 5, 4, 3]
+      weeklyData: [5, 4, 3, 2, 8, 4, 4] // Mon-Sun: Total 30 min, peak on Friday
     }
   ];
 

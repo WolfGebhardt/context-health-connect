@@ -96,7 +96,7 @@ const GoalsAchievements = () => {
                 <div className={`absolute inset-0 rounded-full ${goal.bgColor} opacity-30 dark:opacity-50 blur-2xl`} />
                 
                 {/* Background circle */}
-                <svg className="w-full h-full transform -rotate-90 drop-shadow-2xl">
+                <svg className="w-full h-full transform -rotate-90 drop-shadow-2xl" viewBox="0 0 160 160">
                   <circle
                     cx="80"
                     cy="80"

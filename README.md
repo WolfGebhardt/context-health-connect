@@ -317,5 +317,4 @@ For grant reviewers, the application demonstrates:
 
 ---
 
-**Built with [Lovable](https://lovable.dev)** ❤️  
 *AI NATION Grant Application - Environmental Health Intelligence PoC*

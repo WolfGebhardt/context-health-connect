@@ -9,6 +9,7 @@ interface Goal {
   icon: React.ElementType;
   color: string;
   bgColor: string;
+  weeklyData: number[]; // Daily minutes for each day of the week (Mon-Sun)
 }
 
 const GoalsAchievements = () => {
@@ -20,7 +21,8 @@ const GoalsAchievements = () => {
       target: 120, 
       icon: Leaf, 
       color: 'text-nature',
-      bgColor: 'bg-nature'
+      bgColor: 'bg-nature',
+      weeklyData: [20, 10, 8, 12, 15, 10, 10] // Mon-Sun
     },
     { 
       id: 'social', 
@@ -29,7 +31,8 @@ const GoalsAchievements = () => {
       target: 60, 
       icon: Users, 
       color: 'text-social',
-      bgColor: 'bg-social'
+      bgColor: 'bg-social',
+      weeklyData: [8, 5, 4, 10, 8, 5, 5]
     },
     { 
       id: 'focus', 
@@ -38,7 +41,8 @@ const GoalsAchievements = () => {
       target: 150, 
       icon: Focus, 
       color: 'text-focus',
-      bgColor: 'bg-focus'
+      bgColor: 'bg-focus',
+      weeklyData: [25, 15, 18, 20, 22, 10, 10]
     },
     { 
       id: 'sleep', 
@@ -47,7 +51,8 @@ const GoalsAchievements = () => {
       target: 480, 
       icon: Moon, 
       color: 'text-muted-foreground',
-      bgColor: 'bg-muted'
+      bgColor: 'bg-muted',
+      weeklyData: [60, 58, 55, 62, 65, 60, 60]
     },
     { 
       id: 'exercise', 
@@ -56,7 +61,8 @@ const GoalsAchievements = () => {
       target: 30, 
       icon: Dumbbell, 
       color: 'text-primary',
-      bgColor: 'bg-primary'
+      bgColor: 'bg-primary',
+      weeklyData: [5, 3, 2, 8, 5, 4, 3]
     }
   ];
 
@@ -64,61 +70,66 @@ const GoalsAchievements = () => {
     return Math.min((current / target) * 100, 100);
   };
 
+  const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+
   return (
     <Card className="p-8 bg-gradient-to-br from-card to-accent/20 border-2">
       <h2 className="text-2xl font-bold mb-8 text-foreground">Goals & Achievements</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
         {goals.map((goal) => {
           const progress = getProgress(goal.current, goal.target);
           const Icon = goal.icon;
-          const circumference = 2 * Math.PI * 54;
+          const circumference = 2 * Math.PI * 52;
           const strokeDashoffset = circumference - (progress / 100) * circumference;
           const isComplete = progress >= 100;
+          const maxWeeklyValue = Math.max(...goal.weeklyData);
+          const dailyTarget = goal.target / 7;
 
           return (
             <div 
               key={goal.id} 
-              className="flex flex-col items-center gap-4 animate-fade-in hover:scale-105 transition-transform duration-300"
+              className="flex flex-col items-center gap-5 animate-fade-in hover:scale-105 transition-transform duration-300"
             >
-              <div className="relative w-36 h-36">
+              {/* Circular Progress */}
+              <div className="relative w-40 h-40">
                 {/* Outer glow effect */}
                 <div className={`absolute inset-0 rounded-full ${goal.bgColor} opacity-30 dark:opacity-50 blur-2xl`} />
                 
                 {/* Background circle */}
                 <svg className="w-full h-full transform -rotate-90 drop-shadow-2xl">
                   <circle
-                    cx="72"
-                    cy="72"
-                    r="54"
+                    cx="80"
+                    cy="80"
+                    r="52"
                     stroke="currentColor"
-                    strokeWidth="12"
+                    strokeWidth="20"
                     fill="none"
                     className="text-muted/20 dark:text-muted/30"
                   />
                   <circle
-                    cx="72"
-                    cy="72"
-                    r="54"
+                    cx="80"
+                    cy="80"
+                    r="52"
                     stroke="currentColor"
-                    strokeWidth="14"
+                    strokeWidth="20"
                     fill="none"
                     className={`${goal.color} transition-all duration-1000 ease-out ${isComplete ? 'animate-pulse-slow' : ''}`}
                     strokeDasharray={circumference}
                     strokeDashoffset={strokeDashoffset}
                     strokeLinecap="round"
                     style={{ 
-                      filter: 'drop-shadow(0 0 8px currentColor) brightness(1.2)',
+                      filter: 'drop-shadow(0 0 12px currentColor) brightness(1.2)',
                     }}
                   />
                 </svg>
                 
                 {/* Center content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/95 dark:bg-card/95 rounded-full m-3 backdrop-blur-md border-2 border-border/50 dark:border-border/70">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/95 dark:bg-card/95 rounded-full m-4 backdrop-blur-md border-2 border-border/50 dark:border-border/70">
                   <span className="text-3xl font-bold text-foreground mb-1">
                     {goal.current}
                   </span>
                   <span className="text-xs text-muted-foreground font-semibold">min</span>
-                  <div className="mt-2 px-2 py-1 bg-muted/70 dark:bg-muted/50 rounded-full">
+                  <div className="mt-1.5 px-2 py-0.5 bg-muted/70 dark:bg-muted/50 rounded-full">
                     <span className="text-[10px] text-foreground font-medium">
                       Goal: {goal.target}
                     </span>
@@ -126,6 +137,7 @@ const GoalsAchievements = () => {
                 </div>
               </div>
               
+              {/* Goal Label */}
               <div className="text-center space-y-1">
                 <div className="flex items-center gap-2 justify-center">
                   <Icon className={`w-4 h-4 ${goal.color}`} />
@@ -133,6 +145,43 @@ const GoalsAchievements = () => {
                 </div>
                 <p className="text-xs text-muted-foreground font-medium">
                   {Math.round(progress)}% complete
+                </p>
+              </div>
+
+              {/* Weekly Progress Chart */}
+              <div className="w-full px-2">
+                <div className="relative h-20 flex items-end justify-between gap-1 bg-muted/20 dark:bg-muted/10 rounded-lg p-2 border border-border/30">
+                  {/* Grid lines */}
+                  <div className="absolute inset-x-2 top-2 bottom-8 flex flex-col justify-between pointer-events-none">
+                    <div className="h-px bg-border/30" />
+                    <div className="h-px bg-border/30" />
+                  </div>
+                  
+                  {/* Bars */}
+                  {goal.weeklyData.map((value, idx) => {
+                    const barHeight = Math.max((value / maxWeeklyValue) * 100, 8);
+                    const isAboveTarget = value >= dailyTarget;
+                    
+                    return (
+                      <div key={idx} className="flex-1 flex flex-col items-center gap-1 relative z-10">
+                        <div 
+                          className={`w-full rounded-sm transition-all duration-500 ${
+                            isAboveTarget ? goal.bgColor : 'bg-muted dark:bg-muted/60'
+                          } ${isAboveTarget ? 'opacity-100' : 'opacity-50'}`}
+                          style={{ 
+                            height: `${barHeight}%`,
+                            filter: isAboveTarget ? 'brightness(1.1)' : 'none'
+                          }}
+                        />
+                        <span className="text-[9px] font-bold text-muted-foreground dark:text-muted-foreground/80">
+                          {days[idx]}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p className="text-[10px] text-center text-muted-foreground mt-1 font-medium">
+                  This week's activity
                 </p>
               </div>
             </div>

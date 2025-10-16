@@ -55,7 +55,7 @@ const ScoreRing = ({ score, size = 'md', showLabel = true }: ScoreRingProps) => 
             cx={config.ring / 2}
             cy={config.ring / 2}
             r={radius}
-            className="stroke-muted"
+            className="stroke-muted/40 dark:stroke-muted/50"
             strokeWidth={config.stroke}
             fill="none"
           />
@@ -69,6 +69,7 @@ const ScoreRing = ({ score, size = 'md', showLabel = true }: ScoreRingProps) => 
             strokeDasharray={circumference}
             strokeDashoffset={offset}
             strokeLinecap="round"
+            style={{ filter: 'drop-shadow(0 0 6px currentColor) brightness(1.1)' }}
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -79,10 +80,10 @@ const ScoreRing = ({ score, size = 'md', showLabel = true }: ScoreRingProps) => 
       </div>
       {showLabel && (
         <div className="text-center">
-          <p className="text-sm text-foreground font-medium">
+          <p className="text-sm text-foreground font-semibold">
             {isAnalyzing ? 'Analyzing environmental data...' : 'Environmental Health Score'}
           </p>
-          <p className="text-xs text-muted-foreground mt-1">
+          <p className="text-xs text-foreground/70 dark:text-foreground/80 mt-1 font-medium">
             {isAnalyzing ? 'Processing 847 samples with ML' : 'AI-powered analysis complete'}
           </p>
         </div>

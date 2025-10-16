@@ -82,10 +82,10 @@ const GoalsAchievements = () => {
             >
               <div className="relative w-36 h-36">
                 {/* Outer glow effect */}
-                <div className={`absolute inset-0 rounded-full ${goal.bgColor} opacity-10 blur-xl`} />
+                <div className={`absolute inset-0 rounded-full ${goal.bgColor} opacity-30 dark:opacity-50 blur-2xl`} />
                 
                 {/* Background circle */}
-                <svg className="w-full h-full transform -rotate-90 drop-shadow-lg">
+                <svg className="w-full h-full transform -rotate-90 drop-shadow-2xl">
                   <circle
                     cx="72"
                     cy="72"
@@ -93,30 +93,33 @@ const GoalsAchievements = () => {
                     stroke="currentColor"
                     strokeWidth="12"
                     fill="none"
-                    className="text-muted/30"
+                    className="text-muted/20 dark:text-muted/30"
                   />
                   <circle
                     cx="72"
                     cy="72"
                     r="54"
                     stroke="currentColor"
-                    strokeWidth="12"
+                    strokeWidth="14"
                     fill="none"
                     className={`${goal.color} transition-all duration-1000 ease-out ${isComplete ? 'animate-pulse-slow' : ''}`}
                     strokeDasharray={circumference}
                     strokeDashoffset={strokeDashoffset}
                     strokeLinecap="round"
+                    style={{ 
+                      filter: 'drop-shadow(0 0 8px currentColor) brightness(1.2)',
+                    }}
                   />
                 </svg>
                 
                 {/* Center content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/80 dark:bg-card/90 rounded-full m-3 backdrop-blur-sm border border-border/50">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/95 dark:bg-card/95 rounded-full m-3 backdrop-blur-md border-2 border-border/50 dark:border-border/70">
                   <span className="text-3xl font-bold text-foreground mb-1">
                     {goal.current}
                   </span>
-                  <span className="text-xs text-muted-foreground font-medium">min</span>
-                  <div className="mt-2 px-2 py-1 bg-muted/50 rounded-full">
-                    <span className="text-[10px] text-muted-foreground">
+                  <span className="text-xs text-muted-foreground font-semibold">min</span>
+                  <div className="mt-2 px-2 py-1 bg-muted/70 dark:bg-muted/50 rounded-full">
+                    <span className="text-[10px] text-foreground font-medium">
                       Goal: {goal.target}
                     </span>
                   </div>

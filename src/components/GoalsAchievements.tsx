@@ -154,52 +154,62 @@ const GoalsAchievements = () => {
               </div>
 
               {/* Weekly Bar Chart */}
-              <Card className="w-full p-4 bg-muted/30 dark:bg-muted/20 border border-border/50">
-                <div className="space-y-3">
-                  {/* Chart area */}
-                  <div className="h-24 flex items-end justify-between gap-1.5 relative">
-                    {/* Grid lines */}
-                    <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
-                      <div className="h-px bg-border/20" />
-                      <div className="h-px bg-border/20" />
-                      <div className="h-px bg-border/20" />
-                    </div>
+              <Card className="w-full p-3 bg-muted/30 dark:bg-muted/20 border border-border/50">
+                <div className="space-y-2">
+                  {/* Chart area - reduced height */}
+                  <div className="h-16 flex items-end justify-between gap-1 relative">
+                    {/* Horizontal target line */}
+                    <div 
+                      className="absolute inset-x-0 border-t-2 border-dashed pointer-events-none z-20"
+                      style={{ 
+                        borderColor: goal.color,
+                        opacity: 0.3,
+                        bottom: `${(dailyTarget / Math.max(...goal.weeklyData, dailyTarget * 1.2)) * 100}%`
+                      }}
+                    />
                     
-                    {/* Bars */}
+                    {/* Bars - all colored */}
                     {goal.weeklyData.map((value, idx) => {
                       const maxValue = Math.max(...goal.weeklyData, dailyTarget * 1.2);
-                      const barPx = Math.max((value / maxValue) * 96, 4);
+                      const heightPercent = Math.max((value / maxValue) * 100, 8);
                       const meetsTarget = value >= dailyTarget;
                       
                       return (
                         <div 
                           key={idx} 
-                          className="flex-1 rounded-t-md transition-all duration-700 hover:opacity-80 relative z-10"
+                          className="flex-1 rounded-t transition-all duration-700 hover:scale-105 relative z-10 cursor-pointer"
                           style={{ 
-                            height: `${barPx}px`,
-                            backgroundColor: meetsTarget ? goal.color : 'hsl(var(--muted))',
-                            opacity: meetsTarget ? 1 : 0.5,
+                            height: `${heightPercent}%`,
+                            backgroundColor: goal.color,
+                            opacity: meetsTarget ? 1 : 0.6,
+                            boxShadow: meetsTarget ? `0 0 8px ${goal.color}40` : 'none'
                           }}
-                          title={`${days[idx]}: ${value} min`}
+                          title={`${days[idx]}: ${value} min ${meetsTarget ? '✓ Target met' : ''}`}
                         />
                       );
                     })}
                   </div>
                   
                   {/* Day labels */}
-                  <div className="flex justify-between gap-1.5">
+                  <div className="flex justify-between gap-1">
                     {days.map((day, idx) => (
                       <div key={idx} className="flex-1 text-center">
-                        <span className="text-[10px] font-bold text-foreground/60">
+                        <span className="text-[9px] font-bold text-foreground/70">
                           {day}
                         </span>
                       </div>
                     ))}
                   </div>
                   
-                  <p className="text-[10px] text-center text-muted-foreground font-medium pt-1 border-t border-border/30">
-                    Weekly Activity Pattern
-                  </p>
+                  {/* Summary with target info */}
+                  <div className="pt-2 border-t border-border/30 flex items-center justify-between text-[10px]">
+                    <span className="text-muted-foreground font-medium">
+                      Daily target: {Math.round(dailyTarget)}min
+                    </span>
+                    <span className="font-semibold text-foreground/80">
+                      {goal.weeklyData.filter(v => v >= dailyTarget).length}/7 days
+                    </span>
+                  </div>
                 </div>
               </Card>
             </div>

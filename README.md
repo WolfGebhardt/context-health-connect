@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# ContextHealth
 
-## Project info
+> Your environment. Your health. Finally connected.
 
-**URL**: https://lovable.dev/projects/5155ad08-15cd-4599-a268-43759bc0a9cf
+An AI-powered environmental health tracking application that translates your daily environmental context into actionable health insights.
 
-## How can I edit this code?
+## 🌟 Overview
 
-There are several ways of editing your application.
+ContextHealth is a proof-of-concept application that demonstrates how passive environmental sensing (GPS location, acoustic patterns, movement) can be transformed into meaningful health intelligence. The app tracks nature exposure, social interactions, noise levels, and indoor/outdoor time to provide research-backed recommendations for improved wellbeing.
 
-**Use Lovable**
+## ✨ Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5155ad08-15cd-4599-a268-43759bc0a9cf) and start prompting.
+- **Environmental Health Score**: Real-time scoring based on your environmental exposure patterns
+- **Interactive Timeline**: Visualize your day with color-coded environmental contexts
+- **AI-Powered Insights**: Research-backed health recommendations based on your environmental data
+- **Context Classification**:
+  - 🌳 Nature exposure tracking
+  - 👥 Social interaction detection
+  - 🎯 Focused work environment monitoring
+  - 📢 Noise level tracking
+  - 🏠 Indoor/outdoor time analysis
+- **Smart Recommendations**: Personalized, actionable suggestions for optimal health
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tech Stack
 
-**Use your preferred IDE**
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Routing**: React Router v6
+- **State Management**: TanStack Query (React Query)
+- **Notifications**: Sonner + Radix UI Toast
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Getting Started
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+- Node.js 16+ and npm installed ([install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+### Installation
+
+1. Clone the repository:
+```bash
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📱 Application Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   ├── ScoreRing.tsx   # Environmental health score visualization
+│   ├── TimelineView.tsx
+│   ├── InsightsPanel.tsx
+│   └── ...
+├── data/               # Mock data for PoC
+├── pages/              # Route pages
+├── types/              # TypeScript type definitions
+└── lib/                # Utility functions
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Design System
 
-## What technologies are used for this project?
+The app uses a health-focused design inspired by premium wellness trackers like Oura and WHOOP:
 
-This project is built with:
+- **Color Palette**:
+  - Green: Nature contexts
+  - Blue: Social interactions
+  - Purple: Focused environments
+  - Orange: High noise exposure
+  - Gray: Indoor/alone time
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📊 Current Status
 
-## How can I deploy this project?
+This is a **proof-of-concept** application demonstrating the core value proposition of environmental health tracking. The current version uses simulated data to showcase:
 
-Simply open [Lovable](https://lovable.dev/projects/5155ad08-15cd-4599-a268-43759bc0a9cf) and click on Share -> Publish.
+- Environmental context detection and classification
+- Health insight generation from environmental data
+- Actionable recommendation systems
+- User-friendly health data visualization
 
-## Can I connect a custom domain to my Lovable project?
+## 🔮 Future Development
 
-Yes, you can!
+- Real-time GPS and acoustic sensing integration
+- Machine learning models for context classification
+- Historical trend analysis
+- Integration with healthcare provider systems
+- Native mobile applications (iOS/Android)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🤝 Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This is currently a proof-of-concept project. For questions or collaboration opportunities, please open an issue.
+
+## 📄 License
+
+This project was created using Lovable and is available under the MIT License.
+
+## 🔗 Links
+
+- [Live Demo](https://lovable.dev/projects/5155ad08-15cd-4599-a268-43759bc0a9cf)
+- [Lovable Documentation](https://docs.lovable.dev/)
+
+---
+
+Built with [Lovable](https://lovable.dev) ❤️

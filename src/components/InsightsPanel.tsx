@@ -1,6 +1,7 @@
 import { HealthInsight } from '@/types/environmental';
 import { Card } from '@/components/ui/card';
-import { Lightbulb, AlertCircle, CheckCircle, TrendingUp } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Lightbulb, AlertCircle, CheckCircle, TrendingUp, Sparkles } from 'lucide-react';
 
 interface InsightsPanelProps {
   insights: HealthInsight[];
@@ -42,12 +43,17 @@ const InsightsPanel = ({ insights }: InsightsPanelProps) => {
                     {insight.recommendation}
                   </p>
                 </div>
-                {insight.researchBacked && (
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <TrendingUp className="w-3 h-3" />
-                    <span>Research-backed</span>
-                  </div>
-                )}
+                <div className="flex gap-2">
+                  {insight.researchBacked && (
+                    <Badge variant="outline" className="text-xs">
+                      Research-backed
+                    </Badge>
+                  )}
+                  <Badge variant="outline" className="text-xs gap-1 bg-gradient-to-r from-primary/10 to-social/10">
+                    <Sparkles className="w-3 h-3" />
+                    AI Analysis
+                  </Badge>
+                </div>
               </div>
             </div>
           </Card>

@@ -8,6 +8,7 @@ interface ScoreRingProps {
 
 const ScoreRing = ({ score, size = 'md', showLabel = true }: ScoreRingProps) => {
   const [animatedScore, setAnimatedScore] = useState(0);
+  const [isAnalyzing, setIsAnalyzing] = useState(true);
 
   const sizes = {
     sm: { ring: 80, stroke: 8, text: 'text-2xl' },
@@ -21,10 +22,19 @@ const ScoreRing = ({ score, size = 'md', showLabel = true }: ScoreRingProps) => 
   const offset = circumference - (animatedScore / 100) * circumference;
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Simulate AI analysis
+    const analysisTimer = setTimeout(() => {
+      setIsAnalyzing(false);
+    }, 1500);
+
+    const scoreTimer = setTimeout(() => {
       setAnimatedScore(score);
-    }, 100);
-    return () => clearTimeout(timer);
+    }, 1600);
+    
+    return () => {
+      clearTimeout(analysisTimer);
+      clearTimeout(scoreTimer);
+    };
   }, [score]);
 
   const getScoreColor = (score: number) => {
@@ -68,9 +78,14 @@ const ScoreRing = ({ score, size = 'md', showLabel = true }: ScoreRingProps) => 
         </div>
       </div>
       {showLabel && (
-        <p className="text-sm text-muted-foreground font-medium">
-          Environmental Health Score
-        </p>
+        <div className="text-center">
+          <p className="text-sm text-foreground font-medium">
+            {isAnalyzing ? 'Analyzing environmental data...' : 'Environmental Health Score'}
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            {isAnalyzing ? 'Processing 847 samples with ML' : 'AI-powered analysis complete'}
+          </p>
+        </div>
       )}
     </div>
   );

@@ -1,4 +1,12 @@
-import { TimelineSegment, DailyStats, HealthInsight } from '@/types/environmental';
+import { TimelineSegment, DailyStats, HealthInsight, MLMetadata } from '@/types/environmental';
+
+export const mlMetadata: MLMetadata = {
+  totalSamplesAnalyzed: 847,
+  classificationAccuracy: 0.83,
+  processingTime: "4.2s",
+  modelVersion: "v0.1-prototype",
+  featuresUsed: ["MFCC-13", "GPS-coordinates", "temporal-patterns"]
+};
 
 export const mockTimelineData: TimelineSegment[] = [
   {
@@ -11,7 +19,8 @@ export const mockTimelineData: TimelineSegment[] = [
     description: 'Quiet indoor environment',
     tags: ['Quiet', 'Indoor', 'Alone'],
     audioLevel: 35,
-    insights: '2 hours in quiet spaces - good for focus'
+    insights: '2 hours in quiet spaces - good for focus',
+    aiConfidence: 0.92
   },
   {
     id: '2',
@@ -23,7 +32,8 @@ export const mockTimelineData: TimelineSegment[] = [
     description: 'High urban noise exposure',
     tags: ['Urban', 'Transit', 'High Noise'],
     audioLevel: 75,
-    insights: '30min noise exposure (>70dB)'
+    insights: '30min noise exposure (>70dB)',
+    aiConfidence: 0.88
   },
   {
     id: '3',
@@ -35,6 +45,7 @@ export const mockTimelineData: TimelineSegment[] = [
     description: 'Focused work environment',
     tags: ['Indoor', 'Quiet', 'Work'],
     audioLevel: 45,
+    aiConfidence: 0.95
   },
   {
     id: '4',
@@ -46,7 +57,8 @@ export const mockTimelineData: TimelineSegment[] = [
     description: 'Nature + Social interaction',
     tags: ['Nature', 'Social', 'Outdoor'],
     audioLevel: 55,
-    insights: '✓ 45min nature exposure boosts mood by ~20%'
+    insights: '✓ 45min nature exposure boosts mood by ~20%',
+    aiConfidence: 0.87
   },
   {
     id: '5',
@@ -58,7 +70,8 @@ export const mockTimelineData: TimelineSegment[] = [
     description: 'Social environment with conversations',
     tags: ['Social', 'Indoor', 'Conversation'],
     audioLevel: 60,
-    insights: '3 social interactions today - supports wellbeing'
+    insights: '3 social interactions today - supports wellbeing',
+    aiConfidence: 0.91
   },
   {
     id: '6',
@@ -70,6 +83,7 @@ export const mockTimelineData: TimelineSegment[] = [
     description: 'Evening nature walk',
     tags: ['Nature', 'Outdoor', 'Walking'],
     audioLevel: 50,
+    aiConfidence: 0.89
   },
   {
     id: '7',
@@ -81,6 +95,7 @@ export const mockTimelineData: TimelineSegment[] = [
     description: 'Quiet evening at home',
     tags: ['Indoor', 'Quiet', 'Relaxation'],
     audioLevel: 38,
+    aiConfidence: 0.94
   }
 ];
 

@@ -1,6 +1,7 @@
 import { TimelineSegment, EnvironmentalContext } from '@/types/environmental';
 import { Card } from '@/components/ui/card';
 import { Activity, MapPin, Volume2 } from 'lucide-react';
+import AIConfidenceBadge from './AIConfidenceBadge';
 
 interface TimelineViewProps {
   segments: TimelineSegment[];
@@ -79,6 +80,12 @@ const TimelineView = ({ segments }: TimelineViewProps) => {
                       {tag}
                     </span>
                   ))}
+                  {segment.aiConfidence && (
+                    <AIConfidenceBadge 
+                      confidence={segment.aiConfidence} 
+                      context={segment.context}
+                    />
+                  )}
                 </div>
                 {segment.insights && (
                   <div className="mt-3 pt-3 border-t border-border">

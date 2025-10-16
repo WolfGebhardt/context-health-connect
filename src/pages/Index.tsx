@@ -4,6 +4,7 @@ import TimelineView from '@/components/TimelineView';
 import InsightsPanel from '@/components/InsightsPanel';
 import StatsBreakdown from '@/components/StatsBreakdown';
 import RecommendationCard from '@/components/RecommendationCard';
+import AIClassificationPanel from '@/components/AIClassificationPanel';
 import { Button } from '@/components/ui/button';
 import { Calendar, Activity, TrendingUp } from 'lucide-react';
 import { mockTimelineData, mockDailyStats, mockHealthInsights } from '@/data/mockData';
@@ -71,6 +72,7 @@ const Index = () => {
             {/* Grid Layout */}
             <div className="grid lg:grid-cols-2 gap-6">
               <div className="space-y-6">
+                <AIClassificationPanel />
                 <StatsBreakdown stats={mockDailyStats} />
                 <RecommendationCard />
               </div>

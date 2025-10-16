@@ -11,6 +11,15 @@ export interface TimelineSegment {
   tags: string[];
   audioLevel?: number; // decibels
   insights?: string;
+  aiConfidence?: number; // 0-1 confidence score
+}
+
+export interface MLMetadata {
+  totalSamplesAnalyzed: number;
+  classificationAccuracy: number;
+  processingTime: string;
+  modelVersion: string;
+  featuresUsed: string[];
 }
 
 export interface DailyStats {

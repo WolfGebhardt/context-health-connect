@@ -4,8 +4,7 @@
 
 An AI-powered environmental health tracking application that translates your daily environmental context into actionable health insights.
 
-![ContextHealth Overview Dashboard](./public/screenshots/dashboard-overview.png)
-*Environmental Health Score dashboard showing daily breakdown and AI-powered insights*
+> **Note**: Screenshot will be added after first GitHub sync. To add screenshot: Take a screenshot of the running app, save as `public/screenshots/overview.png`, and commit to repository.
 
 ## 🌟 Overview
 
@@ -13,7 +12,7 @@ ContextHealth is a proof-of-concept application that demonstrates how passive en
 
 ## ✨ Features
 
-- **Environmental Health Score**: Real-time scoring based on your environmental exposure patterns
+- **Environmental Health Score**: Real-time scoring (0-100) based on your environmental exposure patterns
 - **Interactive Timeline**: Visualize your day with color-coded environmental contexts
 - **AI-Powered Insights**: Research-backed health recommendations based on your environmental data
 - **Context Classification**:
@@ -24,27 +23,34 @@ ContextHealth is a proof-of-concept application that demonstrates how passive en
   - 🏠 Indoor/outdoor time analysis
 - **Smart Recommendations**: Personalized, actionable suggestions for optimal health
 
-## 📸 Screenshots
+## 📸 Application Preview
 
 ### Dashboard Overview
-The main dashboard displays your Environmental Health Score (0-100) based on today's environmental exposure, with a detailed breakdown showing:
-- Nature time (green)
-- Social interactions (blue)
-- Focused work (purple)
-- Noise exposure (orange)
-- Indoor/alone time (gray)
+The main dashboard displays your Environmental Health Score based on today's environmental exposure:
 
-### Health Insights Panel
-AI-powered insights provide research-backed recommendations:
-- **Nature Exposure**: Tracks outdoor time against the recommended 60+ minutes for optimal stress reduction
-- **Noise Alerts**: Warns about prolonged high-decibel exposure with actionable mitigation strategies
-- **Social Engagement**: Monitors interaction time and its impact on mental health
+**Score Display:**
+- Large circular progress ring showing score (0-100)
+- Animated fill based on current score
+- Color-coded: Green (>75), Blue (50-75), Orange (<50)
 
-### Smart Recommendations
-Context-aware suggestions for tomorrow, including:
-- Specific locations nearby (e.g., "Rosenstein Park - 5 min walk")
+**Environmental Breakdown:**
+- Nature time (green) - Tracks outdoor/nature exposure
+- Social interactions (blue) - Monitors social engagement
+- Focused work (purple) - Quiet, productive time
+- Noise exposure (orange) - High-decibel environment alerts
+- Indoor/alone time (gray) - Solo indoor activities
+
+**Health Insights:**
+- AI-powered analysis with research citations
+- Positive reinforcement for healthy behaviors
+- Alerts for concerning patterns (e.g., excessive noise)
+- Actionable recommendations
+
+**Smart Recommendations:**
+- Tomorrow's suggested activities
+- Nearby locations with walking times
 - Optimal timing based on environmental factors
-- Expected health benefits with research citations
+- Expected health benefits
 
 ## 🛠️ Tech Stack
 
@@ -53,8 +59,8 @@ Context-aware suggestions for tomorrow, including:
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
 - **Routing**: React Router v6
-- **State Management**: TanStack Query (React Query)
 - **Notifications**: Sonner + Radix UI Toast
+- **Data Visualization**: Custom animated components
 
 ## 🚀 Getting Started
 
@@ -87,107 +93,125 @@ npm run dev
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── ui/             # shadcn/ui components
-│   ├── ScoreRing.tsx   # Environmental health score visualization
-│   ├── TimelineView.tsx # Daily context timeline
-│   ├── InsightsPanel.tsx # AI-powered health insights
-│   ├── StatsBreakdown.tsx # Environmental breakdown charts
-│   └── RecommendationCard.tsx # Smart recommendations
-├── data/               # Mock data for PoC
-│   └── mockData.ts     # Simulated day scenario
-├── pages/              # Route pages
+│   ├── ui/             # shadcn/ui base components
+│   ├── ScoreRing.tsx   # Animated score visualization
+│   ├── TimelineView.tsx # Daily context journey
+│   ├── InsightsPanel.tsx # AI insights display
+│   ├── StatsBreakdown.tsx # Environmental charts
+│   └── RecommendationCard.tsx # Smart suggestions
+├── data/
+│   └── mockData.ts     # PoC simulation data
+├── pages/
 │   ├── Index.tsx       # Main dashboard
 │   └── NotFound.tsx    # 404 page
-├── types/              # TypeScript type definitions
-│   └── environmental.ts # Core data types
-└── lib/                # Utility functions
+├── types/
+│   └── environmental.ts # TypeScript definitions
+└── lib/
+    └── utils.ts        # Helper functions
 ```
 
 ## 🎨 Design System
 
-The app uses a health-focused design inspired by premium wellness trackers like Oura and WHOOP:
+Health-focused design inspired by Oura and WHOOP:
 
-- **Color Palette**:
-  - Green (#359a61): Nature contexts
-  - Blue (#4d9fff): Social interactions
-  - Purple (#7e3af2): Focused environments
-  - Orange (#ff7849): High noise exposure
-  - Gray (#646d7b): Indoor/alone time
+**Color Palette:**
+- Nature: `hsl(142 71% 45%)` - #359a61
+- Social: `hsl(217 91% 60%)` - #4d9fff
+- Focus: `hsl(262 52% 47%)` - #7e3af2
+- Noise: `hsl(25 95% 53%)` - #ff7849
+- Indoor: `hsl(215 16% 47%)` - #646d7b
 
-- **Typography**: Clean, readable sans-serif for optimal data visualization
-- **Animations**: Smooth fade-ins and progress transitions for engaging UX
+**Design Principles:**
+- Minimalist, data-focused interface
+- Smooth animations for engagement
+- High contrast for readability
+- Responsive across all devices
 
-## 📊 Current Status
+## 📊 Current Status: Proof of Concept
 
-This is a **proof-of-concept** application demonstrating the core value proposition of environmental health tracking. The current version uses simulated data to showcase:
+**Demonstrates:**
+- Environmental context classification
+- Health insight generation
+- Recommendation engine
+- Modern data visualization
 
-- Environmental context detection and classification
-- Health insight generation from environmental data
-- Actionable recommendation systems
-- User-friendly health data visualization
+**Simulated Day Scenario:**
+- 7 context switches (home → commute → office → park → café → park → home)
+- 10 hours tracked (8 AM - 7 PM)
+- Locations: Stuttgart area (Stadtgarten Park, Rosenstein Park)
+- Noise levels: 35-75 dB
+- Research-backed correlations
 
-### Simulated Day Scenario
-The PoC includes a realistic day simulation with:
-- 7 environmental context switches
-- 10 hours of tracked time
-- Multiple location types (home, commute, office, parks, café)
-- Varying noise levels (35-75 dB)
-- Research-backed health correlations
-
-## 🔮 Future Development
+## 🔮 Development Roadmap
 
 ### Phase 1: MVP (3 months)
-- Real-time GPS and acoustic sensing integration
-- Machine learning models for context classification
-- User accounts and data persistence
-- Historical trend analysis (7-day, 30-day views)
+- [ ] Real-time GPS integration
+- [ ] Acoustic sensing (microphone permissions)
+- [ ] ML context classification models
+- [ ] User authentication & data persistence
+- [ ] 7-day & 30-day trend views
 
-### Phase 2: Healthcare Integration
-- Integration with healthcare provider systems
-- Export data for medical consultations
-- Correlation analysis with health outcomes
-- Privacy-compliant data sharing
+### Phase 2: Healthcare Integration (6 months)
+- [ ] HIPAA-compliant data storage
+- [ ] Healthcare provider portal
+- [ ] Data export for consultations
+- [ ] Correlation analysis tools
+- [ ] API for EHR integration
 
-### Phase 3: Mobile & Scale
-- Native mobile applications (iOS/Android)
-- Wearable device integration
-- Community features and anonymized benchmarks
-- API for third-party integrations
+### Phase 3: Scale (12 months)
+- [ ] iOS & Android native apps
+- [ ] Wearable integration (Apple Watch, Fitbit)
+- [ ] Community benchmarking (anonymized)
+- [ ] Public API
+- [ ] Multi-language support
 
 ## 🎯 Use Cases
 
-### Consumer (B2C)
-- Personal wellness optimization
-- Stress reduction through environmental awareness
-- Nature exposure tracking for mental health
-- Noise pollution awareness
+**Consumer (B2C):**
+- Wellness optimization
+- Mental health support through nature tracking
+- Urban noise pollution awareness
+- Work-life balance monitoring
 
-### Healthcare (B2B)
-- Contextual data for practitioners
-- Environmental factors in diagnosis
-- Treatment efficacy monitoring
+**Healthcare (B2B):**
+- Environmental context for diagnosis
+- Treatment efficacy via environmental factors
 - Research data collection
+- Preventive care insights
 
 ## 🔬 Research Foundation
 
-The app's insights are based on peer-reviewed research:
-- 60+ minutes daily nature exposure reduces stress by 28% (source: environmental psychology studies)
-- Regular social interaction reduces depression risk by 50% (source: longitudinal health studies)
-- Prolonged noise exposure >70dB increases stress hormones (source: occupational health research)
+All insights reference peer-reviewed research:
+
+1. **Nature Exposure**: 60+ min daily reduces stress 28% (environmental psych)
+2. **Social Connection**: Regular interaction reduces depression risk 50% (longitudinal studies)
+3. **Noise Pollution**: >70dB exposure increases stress hormones (occupational health)
+
+## 🔒 Privacy & Security
+
+**Current PoC**: Uses simulated data only  
+**Future Implementation**:
+- End-to-end encryption
+- Local-first data storage
+- Opt-in data sharing
+- GDPR & HIPAA compliance
+- User-controlled data deletion
 
 ## 🤝 Contributing
 
-This is currently a proof-of-concept project. For questions or collaboration opportunities, please open an issue.
+Proof-of-concept for grant proposal demonstration. For collaboration inquiries, open an issue.
 
 ## 📄 License
 
-This project was created using Lovable and is available under the MIT License.
+MIT License - Created with Lovable
 
 ## 🔗 Links
 
 - [Live Demo](https://lovable.dev/projects/5155ad08-15cd-4599-a268-43759bc0a9cf)
-- [Lovable Documentation](https://docs.lovable.dev/)
+- [Lovable Platform](https://lovable.dev)
+- [Documentation](https://docs.lovable.dev/)
 
 ---
 
-Built with [Lovable](https://lovable.dev) ❤️
+**Built with [Lovable](https://lovable.dev)** ❤️  
+*From concept to prototype in hours, not weeks*

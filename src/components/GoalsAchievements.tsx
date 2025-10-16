@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Leaf, Users, Focus, Moon, Dumbbell } from 'lucide-react';
+import FeedbackButtons from '@/components/FeedbackButtons';
 
 interface Goal {
   id: string;
@@ -148,8 +149,11 @@ const GoalsAchievements = () => {
                   <Icon className="w-5 h-5" style={{ color: goal.color }} />
                   <h3 className="text-base font-bold text-foreground">{goal.label}</h3>
                 </div>
-                <div className="text-sm font-semibold text-foreground/70">
-                  {Math.round(progress)}% Complete
+                <div className="flex items-center gap-3">
+                  <div className="text-sm font-semibold text-foreground/70">
+                    {Math.round(progress)}% Complete
+                  </div>
+                  <FeedbackButtons itemId={`goal-${goal.id}`} itemType="goal" compact />
                 </div>
               </div>
 

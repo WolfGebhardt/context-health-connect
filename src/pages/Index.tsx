@@ -74,6 +74,11 @@ const Index = () => {
               <ScoreRing score={mockDailyStats.score} size="lg" />
             </div>
 
+            {/* Prominent Recommendation */}
+            <div className="max-w-3xl mx-auto">
+              <RecommendationCard />
+            </div>
+
             {/* Grid Layout */}
             <div className="grid lg:grid-cols-2 gap-6">
               <div className="space-y-6">
@@ -82,7 +87,6 @@ const Index = () => {
               </div>
               <div className="space-y-6">
                 <InsightsPanel insights={mockHealthInsights.slice(0, 3)} />
-                <RecommendationCard />
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { HealthInsight } from '@/types/environmental';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Lightbulb, AlertCircle, CheckCircle, TrendingUp, Sparkles } from 'lucide-react';
+import FeedbackButtons from '@/components/FeedbackButtons';
 
 interface InsightsPanelProps {
   insights: HealthInsight[];
@@ -39,7 +40,10 @@ const InsightsPanel = ({ insights }: InsightsPanelProps) => {
                 {getImpactIcon(insight.impact)}
               </div>
               <div className="flex-1 space-y-3">
-                <h3 className="font-bold text-foreground text-lg">{insight.title}</h3>
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="font-bold text-foreground text-lg">{insight.title}</h3>
+                  <FeedbackButtons itemId={insight.id} itemType="insight" compact />
+                </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{insight.description}</p>
                 <div className="pt-3 border-t border-border/50 bg-muted/20 -mx-1 px-3 py-2 rounded-lg">
                   <p className="text-sm font-semibold text-foreground flex items-start gap-2">

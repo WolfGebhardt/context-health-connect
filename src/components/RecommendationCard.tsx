@@ -1,16 +1,20 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, TrendingUp } from 'lucide-react';
+import FeedbackButtons from '@/components/FeedbackButtons';
 
 const RecommendationCard = () => {
   return (
     <Card className="p-6 bg-gradient-hero text-white border-0 shadow-2xl shadow-nature/20 hover:shadow-3xl hover:scale-[1.02] transition-all duration-300">
       <div className="space-y-5">
-        <div className="flex items-center gap-2">
-          <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
-            <TrendingUp className="w-5 h-5" />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+              <TrendingUp className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold text-lg">Tomorrow's Recommendation</h3>
           </div>
-          <h3 className="font-bold text-lg">Tomorrow's Recommendation</h3>
+          <FeedbackButtons itemId="tomorrow-rec" itemType="recommendation" compact />
         </div>
         <p className="text-white/95 leading-relaxed">
           Add 20 minutes of nature exposure to reach your optimal target: <strong className="text-white font-bold">20 minutes per day OR 120 minutes per week</strong> for maximum mood and stress benefits.

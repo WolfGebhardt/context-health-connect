@@ -57,6 +57,33 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        nature: {
+          DEFAULT: "hsl(var(--nature))",
+          light: "hsl(var(--nature-light))",
+        },
+        social: {
+          DEFAULT: "hsl(var(--social))",
+          light: "hsl(var(--social-light))",
+        },
+        focus: {
+          DEFAULT: "hsl(var(--focus))",
+          light: "hsl(var(--focus-light))",
+        },
+        noise: {
+          DEFAULT: "hsl(var(--noise))",
+          light: "hsl(var(--noise-light))",
+        },
+        indoor: {
+          DEFAULT: "hsl(var(--indoor))",
+          light: "hsl(var(--indoor-light))",
+        },
+      },
+      backgroundImage: {
+        'gradient-nature': 'var(--gradient-nature)',
+        'gradient-social': 'var(--gradient-social)',
+        'gradient-focus': 'var(--gradient-focus)',
+        'gradient-noise': 'var(--gradient-noise)',
+        'gradient-hero': 'var(--gradient-hero)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +107,39 @@ export default {
             height: "0",
           },
         },
+        "fade-in": {
+          from: {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "pulse-slow": {
+          "0%, 100%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "0.7",
+          },
+        },
+        "progress": {
+          "0%": {
+            transform: "scaleX(0)",
+          },
+          "100%": {
+            transform: "scaleX(1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.5s ease-out",
+        "pulse-slow": "pulse-slow 3s ease-in-out infinite",
+        "progress": "progress 1.5s ease-out",
       },
     },
   },

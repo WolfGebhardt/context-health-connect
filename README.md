@@ -4,7 +4,8 @@
 
 An AI-powered environmental health tracking application that translates your daily environmental context into actionable health insights.
 
-> **Note**: Screenshot will be added after first GitHub sync. To add screenshot: Take a screenshot of the running app, save as `public/screenshots/overview.png`, and commit to repository.
+![ContextHealth Overview Dashboard](./public/screenshots/overview.png)
+*Dashboard showing Environmental Health Score (68/100), environmental breakdown, AI-powered insights, and personalized recommendations*
 
 ## 🌟 Overview
 
@@ -23,34 +24,43 @@ ContextHealth is a proof-of-concept application that demonstrates how passive en
   - 🏠 Indoor/outdoor time analysis
 - **Smart Recommendations**: Personalized, actionable suggestions for optimal health
 
-## 📸 Application Preview
+## 📸 Screenshots
 
-### Dashboard Overview
-The main dashboard displays your Environmental Health Score based on today's environmental exposure:
+### 1. Dashboard Overview
+![Dashboard Overview](./public/screenshots/overview.png)
 
-**Score Display:**
-- Large circular progress ring showing score (0-100)
-- Animated fill based on current score
-- Color-coded: Green (>75), Blue (50-75), Orange (<50)
+The main dashboard displays:
+- **Environmental Health Score**: Large circular progress ring (68/100)
+- **Environmental Breakdown**: Color-coded progress bars showing:
+  - Nature: 15% (green)
+  - Social: 30% (blue)
+  - Focus: 20% (purple)
+  - Noise: 5% (orange)
+  - Indoor/Alone: 30% (gray)
+- **Health Insights Panel**: Research-backed recommendations with positive reinforcement
+- **Tomorrow's Recommendation**: Context-aware suggestions with nearby locations and optimal timing
 
-**Environmental Breakdown:**
-- Nature time (green) - Tracks outdoor/nature exposure
-- Social interactions (blue) - Monitors social engagement
-- Focused work (purple) - Quiet, productive time
-- Noise exposure (orange) - High-decibel environment alerts
-- Indoor/alone time (gray) - Solo indoor activities
+### 2. Timeline View
+![Timeline View](./public/screenshots/timeline.png)
 
-**Health Insights:**
-- AI-powered analysis with research citations
-- Positive reinforcement for healthy behaviors
-- Alerts for concerning patterns (e.g., excessive noise)
-- Actionable recommendations
+Interactive timeline showing your daily environmental journey:
+- **Color-coded segments** for each context type
+- **Time blocks** with duration and location
+- **Noise levels** displayed for each segment (35dB - 75dB)
+- **Context tags** (Quiet, Indoor, Urban, Nature, Social, etc.)
+- **Health insights** integrated into each segment
+- **Chronological view** from morning to evening
 
-**Smart Recommendations:**
-- Tomorrow's suggested activities
-- Nearby locations with walking times
-- Optimal timing based on environmental factors
-- Expected health benefits
+### 3. Health Insights
+![Health Insights](./public/screenshots/insights.png)
+
+Detailed AI-powered health insights:
+- **Nature Exposure**: Tracking against recommended 60+ minutes daily
+- **High Noise Alert**: Warnings about prolonged exposure with mitigation strategies
+- **Social Interactions**: Mental health impact analysis
+- **Focused Time**: Productivity and deep work recommendations
+- **Research citations** for credibility
+- **Actionable recommendations** for each insight
 
 ## 🛠️ Tech Stack
 
@@ -137,7 +147,7 @@ Health-focused design inspired by Oura and WHOOP:
 
 **Simulated Day Scenario:**
 - 7 context switches (home → commute → office → park → café → park → home)
-- 10 hours tracked (8 AM - 7 PM)
+- 10 hours tracked (8:00 AM - 7:00 PM)
 - Locations: Stuttgart area (Stadtgarten Park, Rosenstein Park)
 - Noise levels: 35-75 dB
 - Research-backed correlations
@@ -183,9 +193,9 @@ Health-focused design inspired by Oura and WHOOP:
 
 All insights reference peer-reviewed research:
 
-1. **Nature Exposure**: 60+ min daily reduces stress 28% (environmental psych)
-2. **Social Connection**: Regular interaction reduces depression risk 50% (longitudinal studies)
-3. **Noise Pollution**: >70dB exposure increases stress hormones (occupational health)
+1. **Nature Exposure**: 60+ minutes daily reduces stress by 28% (environmental psychology studies)
+2. **Social Connection**: Regular interaction reduces depression risk by 50% (longitudinal health studies)
+3. **Noise Pollution**: Exposure >70dB increases stress hormones (occupational health research)
 
 ## 🔒 Privacy & Security
 

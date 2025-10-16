@@ -96,7 +96,7 @@ const GoalsAchievements = () => {
                 <div className={`absolute inset-0 rounded-full ${goal.bgColor} opacity-30 dark:opacity-50 blur-2xl`} />
                 
                 {/* Background circle */}
-                <svg className="w-full h-full transform -rotate-90 drop-shadow-2xl" viewBox="0 0 160 160">
+                <svg className="w-full h-full transform -rotate-90 drop-shadow-2xl relative z-10" viewBox="0 0 160 160">
                   <circle
                     cx="80"
                     cy="80"
@@ -124,7 +124,7 @@ const GoalsAchievements = () => {
                 </svg>
                 
                 {/* Center content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-card/95 dark:bg-card/95 rounded-full m-4 backdrop-blur-md border-2 border-border/50 dark:border-border/70">
+                <div className="absolute inset-0 z-0 flex flex-col items-center justify-center bg-card/90 dark:bg-card/90 rounded-full m-10 backdrop-blur-md border-2 border-border/50 dark:border-border/70">
                   <span className="text-3xl font-bold text-foreground mb-1">
                     {goal.current}
                   </span>

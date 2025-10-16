@@ -61,6 +61,7 @@ const GoalsAchievements = () => {
   ];
 
   const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  const chartHeight = 96; // px height for weekly bars area
 
   return (
     <Card className="p-8 bg-gradient-to-br from-card via-card to-accent/5 border-2 shadow-xl">
@@ -165,7 +166,7 @@ const GoalsAchievements = () => {
                     
                     {/* Bars */}
                     {goal.weeklyData.map((value, idx) => {
-                      const barHeight = Math.max((value / maxWeeklyValue) * 100, 5);
+                      const barPx = Math.max((value / maxWeeklyValue) * chartHeight, 6);
                       const meetsTarget = value >= dailyTarget;
                       
                       return (
@@ -173,9 +174,9 @@ const GoalsAchievements = () => {
                           <div 
                             className="w-full rounded-t-md transition-all duration-700 hover:opacity-80"
                             style={{ 
-                              height: `${barHeight}%`,
+                              height: `${barPx}px`,
                               backgroundColor: meetsTarget ? goal.color : 'hsl(var(--muted))',
-                              opacity: meetsTarget ? 1 : 0.4,
+                              opacity: meetsTarget ? 1 : 0.45,
                             }}
                           />
                           <span className="text-[10px] font-bold text-foreground/60">

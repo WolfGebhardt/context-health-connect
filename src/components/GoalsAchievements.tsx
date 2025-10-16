@@ -155,10 +155,11 @@ const GoalsAchievements = () => {
 
               {/* Weekly Bar Chart */}
               <Card className="w-full p-4 bg-muted/30 dark:bg-muted/20 border border-border/50">
-                <div className="space-y-2">
+                <div className="space-y-3">
+                  {/* Chart area */}
                   <div className="h-24 flex items-end justify-between gap-1.5 relative">
                     {/* Grid lines */}
-                    <div className="absolute inset-0 flex flex-col justify-between py-1 pointer-events-none">
+                    <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
                       <div className="h-px bg-border/20" />
                       <div className="h-px bg-border/20" />
                       <div className="h-px bg-border/20" />
@@ -166,26 +167,36 @@ const GoalsAchievements = () => {
                     
                     {/* Bars */}
                     {goal.weeklyData.map((value, idx) => {
-                      const barPx = Math.max((value / maxWeeklyValue) * chartHeight, 6);
+                      const maxValue = Math.max(...goal.weeklyData, dailyTarget * 1.2);
+                      const barPx = Math.max((value / maxValue) * 96, 4);
                       const meetsTarget = value >= dailyTarget;
                       
                       return (
-                        <div key={idx} className="flex-1 flex flex-col items-center gap-2 relative">
-                          <div 
-                            className="w-full rounded-t-md transition-all duration-700 hover:opacity-80"
-                            style={{ 
-                              height: `${barPx}px`,
-                              backgroundColor: meetsTarget ? goal.color : 'hsl(var(--muted))',
-                              opacity: meetsTarget ? 1 : 0.45,
-                            }}
-                          />
-                          <span className="text-[10px] font-bold text-foreground/60">
-                            {days[idx]}
-                          </span>
-                        </div>
+                        <div 
+                          key={idx} 
+                          className="flex-1 rounded-t-md transition-all duration-700 hover:opacity-80 relative z-10"
+                          style={{ 
+                            height: `${barPx}px`,
+                            backgroundColor: meetsTarget ? goal.color : 'hsl(var(--muted))',
+                            opacity: meetsTarget ? 1 : 0.5,
+                          }}
+                          title={`${days[idx]}: ${value} min`}
+                        />
                       );
                     })}
                   </div>
+                  
+                  {/* Day labels */}
+                  <div className="flex justify-between gap-1.5">
+                    {days.map((day, idx) => (
+                      <div key={idx} className="flex-1 text-center">
+                        <span className="text-[10px] font-bold text-foreground/60">
+                          {day}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  
                   <p className="text-[10px] text-center text-muted-foreground font-medium pt-1 border-t border-border/30">
                     Weekly Activity Pattern
                   </p>

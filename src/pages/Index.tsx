@@ -6,6 +6,7 @@ import StatsBreakdown from '@/components/StatsBreakdown';
 import RecommendationCard from '@/components/RecommendationCard';
 import AIClassificationPanel from '@/components/AIClassificationPanel';
 import GoalsAchievements from '@/components/GoalsAchievements';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
 import { Calendar, Activity, TrendingUp } from 'lucide-react';
 import { mockTimelineData, mockDailyStats, mockHealthInsights } from '@/data/mockData';
@@ -14,18 +15,21 @@ const Index = () => {
   const [activeView, setActiveView] = useState<'overview' | 'timeline' | 'insights'>('overview');
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5">
       {/* Header */}
-      <header className="sticky top-0 z-10 bg-card border-b border-border backdrop-blur-sm bg-card/80">
+      <header className="sticky top-0 z-10 bg-card/95 border-b border-border backdrop-blur-md shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-foreground">ContextHealth</h1>
-              <p className="text-sm text-muted-foreground">Your environment. Your health. Finally connected.</p>
+              <h1 className="text-3xl font-bold text-foreground bg-gradient-to-r from-primary to-social bg-clip-text text-transparent">ContextHealth</h1>
+              <p className="text-sm text-muted-foreground font-medium">Your environment. Your health. Finally connected.</p>
             </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Calendar className="w-4 h-4" />
-              <span>Thursday, Oct 16, 2025</span>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Calendar className="w-4 h-4" />
+                <span className="font-medium">Thursday, Oct 16, 2025</span>
+              </div>
+              <ThemeToggle />
             </div>
           </div>
         </div>

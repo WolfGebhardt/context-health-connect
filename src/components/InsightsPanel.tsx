@@ -22,34 +22,38 @@ const InsightsPanel = ({ insights }: InsightsPanelProps) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <Lightbulb className="w-6 h-6 text-social" />
+        <div className="p-2 bg-gradient-to-br from-social/20 to-nature/20 rounded-lg">
+          <Lightbulb className="w-6 h-6 text-social" />
+        </div>
         <h2 className="text-2xl font-bold text-foreground">Health Insights</h2>
       </div>
       <div className="grid gap-4">
         {insights.map((insight, index) => (
           <Card
             key={insight.id}
-            className="p-4 hover:shadow-lg transition-shadow animate-fade-in"
+            className="p-5 bg-gradient-to-br from-card to-accent/10 border-2 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 animate-fade-in"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="flex items-start gap-3">
-              <div className="mt-1">{getImpactIcon(insight.impact)}</div>
-              <div className="flex-1 space-y-2">
-                <h3 className="font-semibold text-foreground">{insight.title}</h3>
-                <p className="text-sm text-muted-foreground">{insight.description}</p>
-                <div className="pt-2 border-t border-border">
-                  <p className="text-sm font-medium text-foreground flex items-start gap-2">
-                    <span className="text-social">→</span>
+            <div className="flex items-start gap-4">
+              <div className="mt-1 p-2 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10">
+                {getImpactIcon(insight.impact)}
+              </div>
+              <div className="flex-1 space-y-3">
+                <h3 className="font-bold text-foreground text-lg">{insight.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{insight.description}</p>
+                <div className="pt-3 border-t border-border/50 bg-muted/20 -mx-1 px-3 py-2 rounded-lg">
+                  <p className="text-sm font-semibold text-foreground flex items-start gap-2">
+                    <span className="text-social text-base">→</span>
                     {insight.recommendation}
                   </p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   {insight.researchBacked && (
-                    <Badge variant="outline" className="text-xs">
+                    <Badge variant="outline" className="text-xs border-nature/30 bg-nature/5">
                       Research-backed
                     </Badge>
                   )}
-                  <Badge variant="outline" className="text-xs gap-1 bg-gradient-to-r from-primary/10 to-social/10">
+                  <Badge variant="outline" className="text-xs gap-1 bg-gradient-to-r from-primary/10 to-social/10 border-primary/30">
                     <Sparkles className="w-3 h-3" />
                     AI Analysis
                   </Badge>

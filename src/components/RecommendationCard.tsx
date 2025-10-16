@@ -4,27 +4,29 @@ import { MapPin, Clock, TrendingUp } from 'lucide-react';
 
 const RecommendationCard = () => {
   return (
-    <Card className="p-6 bg-gradient-hero text-white border-0">
-      <div className="space-y-4">
+    <Card className="p-6 bg-gradient-hero text-white border-0 shadow-2xl shadow-nature/20 hover:shadow-3xl hover:scale-[1.02] transition-all duration-300">
+      <div className="space-y-5">
         <div className="flex items-center gap-2">
-          <TrendingUp className="w-5 h-5" />
-          <h3 className="font-semibold text-lg">Tomorrow's Recommendation</h3>
-        </div>
-        <p className="text-white/90">
-          Add 20 minutes of nature exposure to reach your optimal target: <strong>20 minutes per day OR 120 minutes per week</strong> for maximum mood and stress benefits.
-        </p>
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 space-y-3">
-          <div className="flex items-center gap-2 text-sm text-white/90">
-            <MapPin className="w-4 h-4" />
-            <span>Rosenstein Park - 5 min walk</span>
+          <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+            <TrendingUp className="w-5 h-5" />
           </div>
-          <div className="flex items-center gap-2 text-sm text-white/90">
-            <Clock className="w-4 h-4" />
-            <span>Best time: 3:00 PM (ideal lighting)</span>
+          <h3 className="font-bold text-lg">Tomorrow's Recommendation</h3>
+        </div>
+        <p className="text-white/95 leading-relaxed">
+          Add 20 minutes of nature exposure to reach your optimal target: <strong className="text-white font-bold">20 minutes per day OR 120 minutes per week</strong> for maximum mood and stress benefits.
+        </p>
+        <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 space-y-3 border border-white/20">
+          <div className="flex items-center gap-3 text-sm text-white/95">
+            <MapPin className="w-4 h-4 flex-shrink-0" />
+            <span className="font-medium">Rosenstein Park - 5 min walk</span>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-white/95">
+            <Clock className="w-4 h-4 flex-shrink-0" />
+            <span className="font-medium">Best time: 3:00 PM (ideal lighting)</span>
           </div>
         </div>
         <Button 
-          className="w-full bg-white text-nature hover:bg-white/90 font-semibold"
+          className="w-full bg-white text-nature hover:bg-white/95 font-bold py-6 text-base shadow-lg hover:shadow-xl transition-all duration-300"
           onClick={() => {
             const event = {
               title: 'Park Walk - Nature Time',

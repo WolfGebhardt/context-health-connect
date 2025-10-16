@@ -15,18 +15,18 @@ const StatsBreakdown = ({ stats }: StatsBreakdownProps) => {
   ];
 
   return (
-    <Card className="p-6">
-      <h3 className="text-lg font-semibold text-foreground mb-4">Environmental Breakdown</h3>
+    <Card className="p-6 bg-gradient-to-br from-card to-accent/10 border-2 hover:shadow-lg transition-shadow duration-300">
+      <h3 className="text-lg font-semibold text-foreground mb-6">Environmental Breakdown</h3>
       <div className="space-y-4">
         {contextData.map((item, index) => (
           <div key={item.key} className="space-y-2 animate-fade-in" style={{ animationDelay: `${index * 50}ms` }}>
             <div className="flex items-center justify-between text-sm">
               <span className="text-foreground font-medium">{item.label}</span>
-              <span className="text-muted-foreground">{item.percentage}%</span>
+              <span className="text-muted-foreground font-semibold">{item.percentage}%</span>
             </div>
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
+            <div className="h-3 bg-muted/50 rounded-full overflow-hidden backdrop-blur-sm">
               <div
-                className={`h-full ${item.color} rounded-full transition-all duration-1000 ease-out origin-left`}
+                className={`h-full ${item.color} rounded-full transition-all duration-1000 ease-out origin-left shadow-sm`}
                 style={{ 
                   width: `${item.percentage}%`,
                   animationDelay: `${index * 100}ms`
@@ -36,10 +36,10 @@ const StatsBreakdown = ({ stats }: StatsBreakdownProps) => {
           </div>
         ))}
       </div>
-      <div className="mt-6 pt-4 border-t border-border">
+      <div className="mt-6 pt-4 border-t border-border/50">
         <div className="flex items-center justify-between text-sm">
           <span className="text-muted-foreground">Total tracked time</span>
-          <span className="font-semibold text-foreground">
+          <span className="font-bold text-foreground text-base">
             {Math.floor(stats.totalMinutes / 60)}h {stats.totalMinutes % 60}m
           </span>
         </div>

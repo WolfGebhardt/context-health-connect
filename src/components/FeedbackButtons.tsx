@@ -52,7 +52,7 @@ const FeedbackButtons = ({ itemId, itemType, compact = false }: FeedbackButtonsP
 
   return (
     <>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 bg-background/10 backdrop-blur-sm rounded-lg p-1 border border-white/20">
         <Button
           variant={feedback === 'up' ? 'default' : 'outline'}
           size="icon"

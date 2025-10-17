@@ -1,8 +1,8 @@
 # Competitive Differentiation
 
-## ContextHealth vs. Existing Wearables
+## BeenHealth vs. Existing Wearables
 
-| Feature | Apple Watch | Oura Ring | WHOOP | ContextHealth |
+| Feature | Apple Watch | Oura Ring | WHOOP | BeenHealth |
 |---------|-------------|-----------|-------|---------------|
 | **Environmental Context Tracking** |
 | Nature time tracking | ✗ | ✗ | ✗ | ✅ AI-powered GPS classification |
@@ -26,21 +26,21 @@
 
 ### 1. **The Environmental Blind Spot**
 - **Problem**: Existing wearables measure *physiological* signals (heart rate, HRV, sleep stages) but ignore *environmental context* that drives those signals
-- **ContextHealth Solution**: Captures the "why" behind health metrics - nature exposure, social connection, noise stress
+- **BeenHealth Solution**: Captures the "why" behind health metrics - nature exposure, social connection, noise stress
 
 ### 2. **Passive Context Understanding**
 - **Apple Watch**: Requires manual workout start/stop
 - **Oura**: Only tracks sleep automatically
 - **WHOOP**: Manual activity logging
-- **ContextHealth**: Continuous AI classification without user input (GPS + acoustic ML)
+- **BeenHealth**: Continuous AI classification without user input (GPS + acoustic ML)
 
 ### 3. **Actionable Environmental Insights**
 - **Competitors**: "Close your rings" / "Get more sleep" (generic)
-- **ContextHealth**: "Add 20min nature time at Rosenstein Park (5min walk) at 3PM for stress reduction" (specific, research-backed, location-aware)
+- **BeenHealth**: "Add 20min nature time at Rosenstein Park (5min walk) at 3PM for stress reduction" (specific, research-backed, location-aware)
 
 ### 4. **Healthcare Integration Potential**
 - **Gap in Market**: Wearables provide consumer wellness data but lack clinical context
-- **ContextHealth Opportunity**: Environmental data complements diagnosis
+- **BeenHealth Opportunity**: Environmental data complements diagnosis
   - Example: Depression patient showing <10min/day social time + <30min nature → Treatment optimization
   - COPD patient: Noise exposure + air quality correlation with symptom flares
 
@@ -48,7 +48,7 @@
 
 ### Phase 1: Health-Conscious Early Adopters (B2C)
 - **Profile**: Oura/WHOOP users, biohackers, urban professionals
-- **Value Prop**: "Your wearable tracks your body. ContextHealth tracks your world."
+- **Value Prop**: "Your wearable tracks your body. BeenHealth tracks your world."
 - **Price Point**: €9.99/month (premium tier with unlimited history + healthcare export)
 
 ### Phase 2: Clinical/Research (B2B)
@@ -70,4 +70,4 @@
 
 ---
 
-**Bottom Line**: ContextHealth doesn't compete with physiological wearables - it completes them by measuring the missing environmental dimension of health.
+**Bottom Line**: BeenHealth doesn't compete with physiological wearables - it completes them by measuring the missing environmental dimension of health.

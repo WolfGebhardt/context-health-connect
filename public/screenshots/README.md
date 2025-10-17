@@ -1,6 +1,6 @@
-# ContextHealth Screenshots
+# BeenHealth Screenshots
 
-This folder contains actual screenshots from the ContextHealth application for documentation purposes.
+This folder contains actual screenshots from the BeenHealth application for documentation purposes.
 
 ## Available Screenshots
 

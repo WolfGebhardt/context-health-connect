@@ -21,7 +21,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-foreground bg-gradient-to-r from-primary to-social bg-clip-text text-transparent">ContextHealth</h1>
+              <h1 className="text-3xl font-bold text-foreground bg-gradient-to-r from-primary to-social bg-clip-text text-transparent">BeenHealth</h1>
               <p className="text-sm text-muted-foreground font-medium">Your environment. Your health. Finally connected.</p>
             </div>
             <div className="flex items-center gap-4">

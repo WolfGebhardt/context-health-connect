@@ -1,4 +1,4 @@
-# ContextHealth
+# BeenHealth
 
 > Your environment. Your health. Finally connected.
 
@@ -15,7 +15,7 @@ AI-powered environmental health tracking that translates daily context into acti
 
 **MVP roadmap**: Real sensors → Model training → Beta pilot (15-20 users)
 
-![ContextHealth Overview](./public/screenshots/overview.png)
+![BeenHealth Overview](./public/screenshots/overview.png)
 
 ## ✨ Features
 
@@ -106,7 +106,7 @@ All insights cite peer-reviewed research:
 
 We **complement** physiological wearables (Apple Watch, Oura, WHOOP) by measuring the missing environmental dimension.
 
-| Feature | ContextHealth | Competitors |
+| Feature | BeenHealth | Competitors |
 |---------|---------------|-------------|
 | Nature tracking | ✓ AI-powered | ✗ Manual tags |
 | Social detection | ✓ Passive | ✗ None |

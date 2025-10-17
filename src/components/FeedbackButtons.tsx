@@ -52,9 +52,9 @@ const FeedbackButtons = ({ itemId, itemType, compact = false }: FeedbackButtonsP
 
   return (
     <>
-      <div className="flex items-center gap-2 bg-background/10 backdrop-blur-sm rounded-lg p-1 border border-white/20">
+      <div className="flex items-center gap-2 bg-background/10 backdrop-blur-sm rounded-lg p-1 border border-border">
         <Button
-          variant={feedback === 'up' ? 'default' : 'outline'}
+          variant={feedback === 'up' ? 'default' : 'secondary'}
           size="icon"
           className={buttonSize}
           onClick={() => handleFeedback('up')}
@@ -62,7 +62,7 @@ const FeedbackButtons = ({ itemId, itemType, compact = false }: FeedbackButtonsP
           <ThumbsUp className={iconSize} />
         </Button>
         <Button
-          variant={feedback === 'down' ? 'default' : 'outline'}
+          variant={feedback === 'down' ? 'default' : 'secondary'}
           size="icon"
           className={buttonSize}
           onClick={() => handleFeedback('down')}

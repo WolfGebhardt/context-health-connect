@@ -49,12 +49,18 @@ All colors MUST be HSL.
     --noise-light: 25 95% 95%;
     --indoor: 215 16% 47%;
     --indoor-light: 215 16% 95%;
+    --daylight: 45 100% 55%;
+    --daylight-light: 45 100% 95%;
+    --variety: 280 65% 55%;
+    --variety-light: 280 65% 95%;
 
     /* Gradients */
     --gradient-nature: linear-gradient(135deg, hsl(142 71% 45%) 0%, hsl(142 71% 35%) 100%);
     --gradient-social: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 50%) 100%);
     --gradient-focus: linear-gradient(135deg, hsl(262 52% 47%) 0%, hsl(262 52% 37%) 100%);
     --gradient-noise: linear-gradient(135deg, hsl(25 95% 53%) 0%, hsl(25 95% 43%) 100%);
+    --gradient-daylight: linear-gradient(135deg, hsl(45 100% 55%) 0%, hsl(45 100% 45%) 100%);
+    --gradient-variety: linear-gradient(135deg, hsl(280 65% 55%) 0%, hsl(280 65% 45%) 100%);
     --gradient-hero: linear-gradient(135deg, hsl(142 71% 45%) 0%, hsl(217 91% 60%) 100%);
 
     --sidebar-background: 0 0% 98%;

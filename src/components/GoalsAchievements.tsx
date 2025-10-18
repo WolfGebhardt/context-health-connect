@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card';
-import { Leaf, Users, Focus, Moon, Dumbbell } from 'lucide-react';
+import { Leaf, Users, Volume2, Sun, Sparkles } from 'lucide-react';
 import FeedbackButtons from '@/components/FeedbackButtons';
 
 interface Goal {
@@ -33,31 +33,31 @@ const GoalsAchievements = () => {
       weeklyData: [8, 7, 5, 4, 10, 6, 5] // Mon-Sun: Total 45 min
     },
     { 
-      id: 'focus', 
-      label: 'Focus', 
-      current: 120, 
-      target: 150, 
-      icon: Focus, 
-      color: 'hsl(var(--focus))',
-      weeklyData: [20, 18, 15, 12, 25, 15, 15] // Mon-Sun: Total 120 min, higher on weekdays
-    },
-    { 
-      id: 'sleep', 
-      label: 'Sleep', 
-      current: 420, 
-      target: 480, 
-      icon: Moon, 
-      color: 'hsl(var(--muted-foreground))',
-      weeklyData: [58, 62, 55, 60, 65, 60, 60] // Mon-Sun: Total 420 min (7 hours avg)
-    },
-    { 
-      id: 'exercise', 
-      label: 'Exercise', 
+      id: 'noise', 
+      label: 'Noise', 
       current: 30, 
-      target: 30, 
-      icon: Dumbbell, 
-      color: 'hsl(var(--primary))',
-      weeklyData: [5, 4, 3, 2, 8, 4, 4] // Mon-Sun: Total 30 min, peak on Friday
+      target: 45, 
+      icon: Volume2, 
+      color: 'hsl(var(--noise))',
+      weeklyData: [5, 4, 3, 2, 8, 4, 4] // Mon-Sun: Total 30 min of noise exposure
+    },
+    { 
+      id: 'daylight', 
+      label: 'Daylight', 
+      current: 180, 
+      target: 240, 
+      icon: Sun, 
+      color: 'hsl(var(--daylight))',
+      weeklyData: [25, 28, 22, 20, 35, 30, 20] // Mon-Sun: Total 180 min outdoor daylight
+    },
+    { 
+      id: 'variety', 
+      label: 'Variety', 
+      current: 12, 
+      target: 15, 
+      icon: Sparkles, 
+      color: 'hsl(var(--variety))',
+      weeklyData: [2, 2, 1, 1, 3, 2, 1] // Mon-Sun: Total 12 different contexts
     }
   ];
 

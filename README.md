@@ -24,7 +24,7 @@ AI-powered environmental health tracking that translates daily context into acti
 - **AI Insights**: Research-backed recommendations from environmental data
 - **Context Classification**: Nature 🌳, Social 👥, Focus 🎯, Noise 📢, Indoor/Outdoor 🏠
 - **Smart Recommendations**: Personalized, actionable health suggestions
-- **Weekly Goals**: Track progress across wellness metrics with feedback
+- **Weekly Goals**: Track nature time, social interactions, noise exposure, daylight, and environmental variety
 
 ## 📸 Screenshots
 
